@@ -50,15 +50,15 @@
          name: mysql
          state: started
          enabled: yes
-     - name: Securing root account
-       mysql_user: 
-          name: root 
-          password: rootpwd
-          priv: "*.*:ALL" 
-          state: present 
-          host: localhost
-          login_host: "localhost"
-          login_user: root     
+    #  - name: Securing root account
+    #    mysql_user: 
+    #       name: root 
+    #       password: rootpwd
+    #       priv: "*.*:ALL" 
+    #       state: present 
+    #       host: localhost
+    #       login_host: "localhost"
+    #       login_user: root     
     #  - name: Create application DB user
     #    mysql_user:
     #      name: root
