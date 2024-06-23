@@ -2,11 +2,41 @@
 - name: Deploy Web Application
   hosts: db_and_web_server
   tasks:
-     - name: Install dependencies
+     - name: Install all required dependencies
+       apt: name={{ item {}} state=installed
+       with_items:
+         - python
+         - python-setuptools
+         - python-dev
+         - build-essential
+         - python-pip
      - name: Install MySQL Database
+       apt: name={{ item {}} state=installed
+       with_items:
+         - mysql-server
+         - mysql-client
      - name: Satrt MySQL service
+       service:
+         name: mysql
+         state: started
+         enabled: yes
      - name: Create application database
+       mysql_db: name=employee_db state=present
      - name: Create application DB user
+       mysql_user:
+         name: db_user
+         password: Passw0rd
+         priv: '*.*:ALL'
+         state: present
+         host: '%'
      - name: Install python flask dependencies
+       pip:
+         name: {{ item }}
+         state: present
+       with_items:
+         - flask
+         - flask-mysql
      - name: Copy web-server code
-     - name: Run web-server
+       copy: src=app.py dest=/opt/app.py
+     - name: Start web-server
+       shell: FLASK_APP=app.py nohup flask run --host=0.0.0.0 &
