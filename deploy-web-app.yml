@@ -16,7 +16,10 @@
          - python-dev
          - build-essential
          - python3-pip
-
+     - name: Add specified repository into sources list
+       ansible.builtin.apt_repository:
+         repo: deb https://dev.mysql.com/get/mysql-apt-config_0.8.30-1_all.deb
+         state: present
      - name: Install MySQL Database
        apt: 
          name: "{{ item }}"
