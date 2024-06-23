@@ -6,6 +6,7 @@
        apt:
          upgrade: dist
          update_cache: yes
+
      - name: Install all required dependencies
        apt: 
          name: "{{ item }}"
@@ -16,12 +17,14 @@
          - python-dev
          - build-essential
          - python3-pip
+
      - name: Copy repo mysql
        copy: src=mysql-apt-config_0.8.30-1_all.deb dest=/tmp/mysql-apt-config_0.8.30-1_all.deb
-     - name: Add specified repository into sources list
-       apt_repository:
-         repo: deb /tmp/mysql-apt-config_0.8.30-1_all.deb
-         state: present
+
+     - name: Install a .deb package
+       apt:
+         deb: /tmp/mysql-apt-config_0.8.30-1_all.deb
+
      - name: Install MySQL Database
        apt: 
          name: "{{ item }}"
