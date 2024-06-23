@@ -17,7 +17,6 @@
          - python-dev
          - build-essential
          - python3-pip
-         - python-mysqldb
 
      - name: Install python mysql with pip
        pip:
@@ -72,7 +71,6 @@
        with_items:
          - flask
          - flask-mysql
-         - MySQL-python
 
      - name: Copy web-server code
        copy: src=app.py dest=/opt/app.py
