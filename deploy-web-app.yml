@@ -72,6 +72,7 @@
          state: present
          host: '%'
          login_host: "localhost"
+         login_user: root
 
      - name: Install python flask dependencies
        pip:
