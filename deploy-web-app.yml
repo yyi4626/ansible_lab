@@ -51,7 +51,7 @@
          state: started
          enabled: yes
      - name: Securing root account
-        mysql_user: name=root password={{ rootpwd }} priv=*.*:ALL state=present host=localhost
+       mysql_user: name=root password={{ rootpwd }} priv=*.*:ALL state=present host=localhost
     #  - name: Create application DB user
     #    mysql_user:
     #      name: root
