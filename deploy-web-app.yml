@@ -4,7 +4,7 @@
   tasks:
      - name: Update apt repo
        apt:
-         upgrade: yes
+         upgrade: all
      - name: Install all required dependencies
        apt: 
          name: "{{ item }}"
