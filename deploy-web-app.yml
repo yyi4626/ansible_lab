@@ -51,6 +51,14 @@
          state: started
          enabled: yes
 
+     - name: Create application DB user
+       mysql_user:
+         name: root
+         password: Passw0rd
+         priv: '*.*:ALL'
+         state: present
+         host: '%'
+
      - name: Create application database
        mysql_db: 
          name: employee_db
