@@ -63,6 +63,8 @@
        mysql_db: 
          name: employee_db
          state: present
+         login_host: "localhost"
+         login_user: root        
 
      - name: Create application DB user
        mysql_user:
