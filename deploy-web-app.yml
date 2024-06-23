@@ -4,7 +4,8 @@
   tasks:
      - name: Update apt repo
        apt:
-         upgrade: all
+         upgrade: dist
+         update_cache: yes
      - name: Install all required dependencies
        apt: 
          name: "{{ item }}"
@@ -14,12 +15,12 @@
          - python-setuptools
          - python-dev
          - build-essential
-         - python-pip
+         - python3-pip
 
      - name: Install MySQL Database
        apt: 
          name: "{{ item }}"
-         state: installed
+         state: present
        with_items:
          - mysql-server
          - mysql-client
