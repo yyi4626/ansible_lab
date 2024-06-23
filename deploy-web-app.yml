@@ -3,8 +3,8 @@
   hosts: db_and_web_server1,db_and_web_server2
   tasks:
      - name: Update apt repo
-       apt_repo:
-         update: true
+       apt:
+         upgrade: dist
      - name: Install all required dependencies
        apt: 
          name: "{{ item }}"
