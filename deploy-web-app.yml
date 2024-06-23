@@ -25,6 +25,11 @@
        apt:
          deb: /tmp/mysql-apt-config_0.8.30-1_all.deb
 
+     - name: Update apt repo
+       apt:
+         upgrade: dist
+         update_cache: yes
+         
      - name: Install MySQL Database
        apt: 
          name: "{{ item }}"
