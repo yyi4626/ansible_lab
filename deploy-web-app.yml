@@ -29,7 +29,7 @@
        apt:
          upgrade: dist
          update_cache: yes
-         
+
      - name: Install MySQL Database
        apt: 
          name: "{{ item }}"
@@ -46,8 +46,8 @@
 
      - name: Create application database
        mysql_db: 
-         namer: employee_db
-         stater: present
+         name: employee_db
+         state: present
 
      - name: Create application DB user
        mysql_user:
