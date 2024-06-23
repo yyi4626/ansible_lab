@@ -17,6 +17,7 @@
          - python-dev
          - build-essential
          - python3-pip
+         - pymysql
 
      - name: Copy repo mysql
        copy: src=mysql-apt-config_0.8.30-1_all.deb dest=/tmp/mysql-apt-config_0.8.30-1_all.deb
