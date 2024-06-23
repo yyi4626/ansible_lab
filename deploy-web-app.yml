@@ -54,6 +54,7 @@
      - name: Create application DB user
        mysql_user:
          name: root
+         login_user: root
          priv: '*.*:ALL'
          state: present
          host: '%'
